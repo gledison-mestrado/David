@@ -1,0 +1,48 @@
+*** ERRO ao tentar subir o arquivo GFF
+
+machado@machado-pardb:~/machado-docker$ docker-compose exec machado python manage.py load_gff --file data/sample/genomes/Pb18-GFF-2019+NC-sorteddedup_final_out.gff.gz --organism 'paracoccidioides brasiliensis'
+Processing file: Pb18-GFF-2019+NC-sorteddedup_final_out.gff.gz
+  0%|                                                                                                                               | 1/68899 [00:00<1:59:26,  9.61it/s]
+Traceback (most recent call last):
+  File "manage.py", line 22, in <module>
+    main()
+  File "manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 401, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 395, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/base.py", line 330, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/base.py", line 371, in execute
+    output = self.handle(*args, **options)
+  File "/usr/local/lib/python3.6/dist-packages/machado/management/commands/load_gff.py", line 113, in handle
+    task.result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+    return self.__get_result()
+  File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/machado/loaders/feature.py", line 279, in store_tabix_GFF_feature
+    srcdbxref = Dbxref.objects.get(accession=tabix_feature.contig, db=srcdb)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/django/db/models/query.py", line 431, in get
+    self.model._meta.object_name
+machado.models.DoesNotExist: Dbxref matching query does not exist.
+
+*** na pagina do machado diz ...
+
+2.6. Loading GFF files
+The first column of a GFF file is the reference sequence ID. Usually, in order to load a GFF file, it’s required to have a reference FASTA file loaded. 
+But some GFF files already have the reference features such as chromosome or scaffold. In this case, there are two options:
+
+Load the GFF directly, without a reference FASTA file
+Load the FASTA file and then load the GFF using the parameter ‘ignore’ to not load the reference features
+The GFF file must be indexed using tabix.
+
+*** foi feito a tentativa de subir somente o GFF e o mesmo erro
+*** foi feito a tentativa de subir com parametro --ignore features e o mesmo erro
+*** foi feito a tentativa de subir com parametro --ignore 'features reference' e o mesmo erro
+*** foi feito a tentativa de subir com parametro --ignore exon e o mesmo erro
