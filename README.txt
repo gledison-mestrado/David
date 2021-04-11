@@ -11,3 +11,11 @@ Machado does not support dupplicated features IDs because they are used as prima
 >>>>Fasta was downloaded from OSF repository "Transcriptomic profiling identifies novel transcripts, isomorphs and lncRNAs in Paracoccidioides brasiliensis" at https://osf.io/yn4ra/.
 
 
+>>>> Latest NCBI GFF 
+GCF_000150735.1_Paracocci_br_Pb18_V2_genomic.gff.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/150/735/GCF_000150735.1_Paracocci_br_Pb18_V2/GCF_000150735.1_Paracocci_br_Pb18_V2_genomic.gff.gz
+Downloaded April 11, 2021
+
+>>>> Latest Ensembl Fungi GFF
+ftp://ftp.ensemblgenomes.org/pub/fungi/release-50/gff3/fungi_ascomycota1_collection/paracoccidioides_brasiliensis_pb18_gca_000150735/Paracoccidioides_brasiliensis_pb18_gca_000150735.Paracocci_br_Pb18_V2.50.gff3.gz
+Downloaded April 11, 2021
